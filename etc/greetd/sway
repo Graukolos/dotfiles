@@ -1,0 +1,13 @@
+# global variables
+include /etc/sway/definitions
+include /etc/sway/inputs/*
+include /etc/sway/outputs/*
+
+# start qtgreete
+exec "qtgreet; swaymsg exit"
+
+# offer shutdown options
+bindsym $mod+Shift+e exec $shutdown --layout /etc/greetd/wlogout
+
+# capture PowerOff key
+bindsym XF86PowerOff exec $shutdown --layout /etc/greetd/wlogout

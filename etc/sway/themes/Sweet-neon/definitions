@@ -1,0 +1,4 @@
+# some global theme specific variables
+set $background /etc/sway/themes/Sweet-neon/wallpaper.jpg
+set $gtk-theme Sweet
+set $icon-theme candy-icons

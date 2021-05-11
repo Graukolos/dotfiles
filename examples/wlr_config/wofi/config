@@ -1,0 +1,36 @@
+stylesheet=/home/bryan/.config/wofi/style.css
+# colors=/home/bryan/.config/waybar/material.css
+# hide_scroll=true
+show=drun
+# height=85
+# columns=1
+lines=1
+x=0
+# y=10
+width=100%
+term=foot
+location=top_left
+# dynamic_lines=true
+allow_markup=true
+always_parse_args=true
+show_all=true
+print_command=true
+layer=top
+insensitive=true
+prompt=
+image_size=30
+content_align=start
+hide_scroll=true
+# display_generic=true
+line_wrap=char
+valigh=center
+haligh=center
+orientation=horizontal
+
+# Vi keybindings
+# key_forward=j
+# key_backward=k
+# key_submit=l
+# key_hide_search=q
+# key_pgup=Tabey_pgup=Tab
+# key_expand=Tab

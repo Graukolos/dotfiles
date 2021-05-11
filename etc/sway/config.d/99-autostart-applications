@@ -1,0 +1,3 @@
+# autostart background applications
+exec nwg-panel
+exec_always nwg-dock -d

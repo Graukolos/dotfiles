@@ -1,0 +1,198 @@
+/* ==UserStyle==
+@name           hoogle-gruvbox
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         ElKowar
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("hoogle.haskell.org") {
+    :root {
+        --elk-font-family: "Ubuntu Mono";
+        --elk-font-size: 14px;
+        
+        --elk-bg-dark: #3a3a3a;
+        --elk-bg-darkisher: #464646;
+        --elk-bg-darkish: #606060;
+        --elk-bg-normal: #464646;
+        --elk-bg-brighter: #cdab8f;
+        
+        --elk-border: #9da98d;
+        
+        --elk-fg-normal: #b0b4bc;
+        --elk-fg-brighter: #eceff4;
+        --elk-fg-darker: #edeae0;
+        --elk-fg-dark: #b0b4bc;
+        --elk-fg-inactive: #99979b;
+        
+        --elk-red: #cb7073;
+        --elk-purple: #b48ead;
+        --elk-blue: #6F8798;
+        --elk-green: #9da98d;
+        --elk-aqua: #8DA9A7;
+        --elk-yellow: #88c0d0;
+        --elk-orange: #d59877;
+        
+        --elk-accent: var(--elk-green);
+    }
+
+    :root {
+        --monospaced: "Jetbrains Mono";
+        --monospaced-size: 14px;
+        --monospaced-small: cozette;
+    }
+
+    * {
+        color: var(--elk-fg-normal);
+        border-color: var(--elk-fg-normal) !important;
+    }
+
+    body {
+        background-color: var(--elk-bg-normal);
+        color: var(--elk-fg-normal);
+    }
+
+
+    #links {
+        border: none;
+        background-color: var(--elk-bg-dark);
+        padding: 0.3rem;
+        * {
+            color: var(--elk-fg-normal) !important;
+        }
+    }
+    #logo img {
+        display: inline-block;
+        opacity: 0;
+    }
+
+    a {
+        &[href]:link {
+            color: var(--elk-blue);
+        }
+        &[href]:visited {
+            color: var(--elk-aqua);
+        }
+    }
+    #footer {
+        display: none;
+    }
+
+    #example {
+        background-color: var(--elk-bg-dark);
+        border: none !important;
+        color: var(--elk-fg-normal);
+        padding: 1rem;
+    }
+
+    input {
+        background-color: var(--elk-bg-dark);
+        border: unset;
+        border-color: var(--elk-bg-brighter);
+        padding: 0.2rem 1rem;;
+        transition: box-shadow 0.2s ease-in-out;
+        &[type="submit"]:hover {
+            box-shadow: 2px 2px 5px 0 rgba(0,0,0, 0.2);
+        }
+    }
+    #scope_chosen {
+        background-color: var(--elk-bg-dark);
+        padding: 0.2rem;
+        > * {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+        .chosen-drop {
+            background-color: var(--elk-bg-dark);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+            padding: 0.5rem;
+            input {
+                border: none;
+            }
+            .no-results {
+                background: none;
+            }
+        }
+    }
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    th,
+    .caption {
+        border: none !important;
+        color: var(--elk-blue) !important;
+        a {
+            color: inherit !important;
+        }
+    }
+
+    a {
+        color: var(--elk-blue) !important;
+    }
+
+    .result {
+        a:hover {
+            background-color: inherit;
+        }
+        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.3);
+        .from {
+            padding: 0.5rem 0.9rem;
+        }
+        .ans {
+            background-color: var(--elk-bg-dark);
+            border: none;
+            padding: 0.3rem 1rem;
+            .name {
+                color: var(--elk-aqua);
+                b {
+                    color: var(--elk-aqua);
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+    .doc.newline:not(:empty) {
+        background: none;
+        &::before {
+            margin-left: -0.8rem;
+            width: 1rem;
+            display: inline-block;
+            color: var(--elk-aqua);
+            cursor: pointer;
+        }
+        &.shut::before {
+            content: "+";
+        }
+        &.open::before {
+            content: "-";
+        }
+    }
+
+    .minus {
+        margin-left: -1rem;
+    }
+    .minus,
+    .plus {
+        background: none !important;
+        &::after {
+            text-align: center;
+            width: 0.6rem;
+            height: 1rem;
+            margin: 0 0.2rem;
+            display: inline-block;
+            color: var(--elk-aqua);
+            cursor: pointer;
+        }
+    }
+    .minus::after {
+        content: "-"
+    }
+    .plus::after {
+        content: "+"
+    }
+}

@@ -1,0 +1,12 @@
+<eww>
+  <definitions>
+    <def name="notification">
+      <box orientation="v" space-evenly="true" class="notification-center">
+        <literal content="{{content}}"></literal>
+      </box>
+    </def>
+  </definitions>
+  <variables>
+    <script-var interval="600s" name="content"> ~/.config/eww/scripts/notification </script-var>
+  </variables>
+</eww>
