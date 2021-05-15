@@ -3,13 +3,13 @@
 # Basics:
 #
 ## Launch // Terminal ##
-bindsym $mod+Return exec $term
+bindsym Shift+Return exec $term
 
 ## Action // Kill focused window ##
-bindsym $mod+Shift+q kill
+bindsym Shift+Backspace kill
 
 ## Launch // Application Launcher ##
-bindsym $mod+d exec $menu
+bindsym $mod exec $menu
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -129,7 +129,6 @@ default_border pixel 0
 hide_edge_borders smart
 
 gaps inner 10
-gaps outer 0
 
 #
 # Status Bar:

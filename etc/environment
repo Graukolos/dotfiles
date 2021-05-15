@@ -4,8 +4,18 @@
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
 
+# remove client side decoration in GTK3
+# LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
+# GTK_CSD=0
+
 # QT should use wayland
 QT_QPA_PLATFORM=wayland
+QT_QPA_PLATFORMTHEME=qt5ct
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# enable video accel via v2l
+# LIBVA_DRIVER_NAME=v4l2_request
+# LIBVA_V4L2_REQUEST_VIDEO_PATH=/dev/video1
 
 # Most pure GTK3 apps use wayland by default, but some,
 # like Firefox, need the backend to be explicitely selected.
