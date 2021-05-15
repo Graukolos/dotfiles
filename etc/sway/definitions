@@ -16,11 +16,11 @@ set $theme /etc/sway/themes/Sweet-neon
 set $term alacritty
 
 # Your preferred application launcher
-set $menu bemenu-run
+set $menu nwggrid
 
 ### Lockscreen configuration
 #
 set $locking swaylock --config $theme/swaylock
 
 # shutdown command
-set $shutdown wlogout
+set $shutdown nwgbar
