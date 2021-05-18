@@ -74,7 +74,7 @@ bindsym Shift+Return exec $term
 bindsym Shift+Backspace kill
 
 ## Launch // Application Launcher ##
-bindsym $mod exec $menu
+bindsym $mod+d exec $menu
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -202,8 +202,8 @@ xwayland disable
 
 # enable gtk theme
 exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme $gtk-theme
-  gsettings set org.gnome.desktop.interface icon-theme $icon-theme
+  gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
+  gsettings set org.gnome.desktop.interface icon-theme zafiro-icon-theme
 }
 
 # autostart background applications
