@@ -1,5 +1,0 @@
-# autostart background applications
-exec --no-startup-id nwg-panel
-exec --no-startup-id autotiling
-exec --no-startup-id mako
-exec_always --no-startup-id nwg-dock -d
