@@ -1,0 +1,8 @@
+{
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "cpu", "memory", "custom/gpu"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "backlight", "battery", "pulseaudio"],
+    "backlight": {},
+    "battery": {}
+}

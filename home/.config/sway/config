@@ -35,16 +35,16 @@ set $shutdown wlogout
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input type:keyboard {
-    xkb_layout "gb,de"
-    xkb_options "grp:win_space_toggle"
+		xkb_layout "gb,de"
+		xkb_options "grp:win_space_toggle"
 }
 input type:pointer {
-      accel_profile flat
+			accel_profile flat
 }
 input type:touchpad {
-      dwt enabled
-      tap enabled
-      natural_scroll enabled
+			dwt enabled
+			tap enabled
+			natural_scroll enabled
 }
 
 
@@ -202,17 +202,25 @@ xwayland disable
 
 # enable gtk theme
 exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
-  gsettings set org.gnome.desktop.interface icon-theme zafiro-icon-theme
+	gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
+	gsettings set org.gnome.desktop.interface icon-theme zafiro-icon-theme
 }
 
 # autostart background applications
 exec --no-startup-id {
-    nwg-panel
-    autotiling
-    mako
-    nm-applet --indicator
-    waybar
+		nwg-panel
+		autotiling
+		mako
+		nm-applet --indicator
+		waybar
+		/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+}
+
+
+# fixing gtk3 startup bug
+exec {
+	systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+	exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 }
 
 
