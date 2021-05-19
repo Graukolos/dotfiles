@@ -21,6 +21,9 @@ input type:touchpad {
 # output DP-1 res 2560x1440 pos 0 0
 # output DP-2 res 2560x1440 pos 2560 0
 
+# only enable this if every app you use is compatible with wayland
+xwayland disable
+
 # start gtkgreeter
 # fixing gtk3 startup bug
 exec {
