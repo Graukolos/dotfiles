@@ -1,13 +1,23 @@
 {
-    "layer": "top",
-    "modules-left": ["sway/workspaces", "cpu", "memory"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "backlight", "battery", "pulseaudio"],
-    "backlight": {},
-    "battery": {},
-    "clock": {},
-    "cpu": {},
-    "memory": {},
-    "pulseaudio": {},
-    "tray": {}
+	"layer": "bottom",
+	"position": "top",
+	"height": "30",
+
+	"modules-left": [],
+	"modules-center": ["clock"],
+	"modules-right": ["tray", "sway/language", "battery", "pulseaudio", "backlight"],
+
+	"backlight": {},
+
+	"battery": {},
+
+	"clock": {},
+
+	"cpu": {},
+
+	"memory": {},
+
+	"pulseaudio": {},
+	
+	"tray": {}
 }
