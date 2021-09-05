@@ -191,13 +191,15 @@ exec_always {
 
 # autostart background applications
 exec --no-startup-id {
-	eval $(gnome-keyring-daemon --start)
+	"eval $(gnome-keyring-daemon --start)"
 	waybar
 	autotiling
 	mako
 	nm-applet --indicator
 	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 }
+
+exec_always "nwg-dock -d"
 
 # include additional configs e.g. to autostart applications
 include /etc/sway/config.d/*
