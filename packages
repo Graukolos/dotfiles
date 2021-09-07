@@ -1,0 +1,21 @@
+# Additional Packages
+qt5-wayland
+qt6-wayland
+mako
+nwg-bar
+pavucontrol
+
+# Eyecandy
+ttf-jetbrains-mono
+kvantum-theme-nordic-git
+nordic-darker-theme
+
+# Terminal Apps
+neovim
+
+# Desktop Apps
+brave
+firefox
+thunderbird
+alacritty
+qt5ct
