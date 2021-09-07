@@ -1,6 +1,6 @@
 # Apply gtk theming
-gsettings set org.gnome.desktop.interface gtk-theme "Nordic-darker"
-gsettings set org.gnome.desktop.interface icon-theme "Papirus"
+exec_always gsettings set org.gnome.desktop.interface gtk-theme "Nordic-darker"
+exec_always gsettings set org.gnome.desktop.interface icon-theme "Papirus"
 
 
 # Set inner/outer gaps
