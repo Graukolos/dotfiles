@@ -1,6 +1,6 @@
 export EDITOR=/usr/bin/nvim
 export BROWSER=brave
-epxort TERM=alacritty
+export TERM=alacritty
 export MAIL=thunderbird
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
