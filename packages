@@ -1,21 +1,55 @@
 # Additional Packages
 qt5-wayland
 qt6-wayland
+pavucontrol
+pamixer
+xdg-user-dirs-gtk
+file-roller
+p7zip
+unrar
+
+
+# Sway
+sway
 mako
 nwg-bar
-pavucontrol
+network-manager-applet
+light
+greetd
+greetd-tuigreet
+autotiling
 
 # Eyecandy
 ttf-jetbrains-mono
+ttf-material-design-icons-desktop-git
 kvantum-theme-nordic-git
 nordic-darker-theme
+papirus-icon-theme
+qt5ct
+azote
+
+# Shell
+alacritty
+zsh-theme-powerlevel10k
+zsh-completions
+oh-my-zsh-git
+ttf-meslo-nerd-font-powerlevel10k
 
 # Terminal Apps
 neovim
+neofetch
+htop
+github-cli
+yay
 
 # Desktop Apps
 brave
+chromium
 firefox
 thunderbird
-alacritty
-qt5ct
+vscodium
+vlc
+nextcloud-client
+gnome-calendar
+gnome-calculator
+eog

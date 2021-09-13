@@ -1,11 +1,12 @@
 {
-    "position": "bottom", 
-    "height": 30,
+    "position": "top", 
+    "layer": "bottom",
+    "height": 35,
     "modules-left": ["sway/workspaces"],
     "modules-right": ["tray", "pulseaudio", "network", "battery", "clock", "custom/power"],
 	"tray": {
-		"icon-size": 14,
-		"spacing": 5
+		"icon-size": 18,
+		"spacing": 6
 	},
 	"sway/workspaces": {
 		"disable-scroll": true,
@@ -42,8 +43,7 @@
 	},
 	"clock": {
 		"format": "󰅐 {:%H:%M}",
-        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": "{:%Y-%m-%d}"
+		"on-click": "gnome-calendar"
 	},
 	"battery": {
         	"states": {
@@ -62,8 +62,7 @@
         	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         	"format-linked": "{ifname} (No IP) ",
         	"format-disconnected": "󰤮 Disconnected",
-        	"format-alt": "{ifname}: {ipaddr}/{cidr}",
-			"on-click": "connman-gtk"
+		"on-click": "nm-connection-editor"
 	},
 	"pulseaudio": {
 		"format": "{icon}  {volume}%",

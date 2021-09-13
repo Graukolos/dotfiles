@@ -18,3 +18,9 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 
 # Xdg Desktop Portal
 exec /usr/libexec/xdg-desktop-portal
+
+# Nextcloud
+exec nextcloud
+
+# Network
+exec nm-applet --indicator
