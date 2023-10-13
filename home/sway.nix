@@ -8,6 +8,7 @@ in {
     pkgs.glib
     pkgs.libsForQt5.polkit-kde-agent
     pkgs.autotiling-rs
+    pkgs.xdg-utils
   ];
 
   gtk = {
@@ -122,7 +123,7 @@ in {
       };
       startup = [
         { command = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"; }
-        { command = "${lib.getExe pkgs.autotiling-rs}"; }
+        { command = "${pkgs.autotiling-rs}/bin/autotiling-rs"; }
       ];
     };
   };

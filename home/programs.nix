@@ -7,5 +7,6 @@
     pkgs.gnome.nautilus
     pkgs.gnome.sushi
     pkgs.vlc
+    pkgs.gh
   ];
 }
