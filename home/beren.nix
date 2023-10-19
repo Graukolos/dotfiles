@@ -29,6 +29,7 @@
       pkgs.blender
       pkgs.udisks
       pkgs.armcord
+      pkgs.grimblast
     ];
   };
 
@@ -40,8 +41,9 @@
       enableAutosuggestions = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        "ls" = "eza -al";
-        "cat" = "bat";
+        "ls" = "${lib.getExe pkgs.eza} -al";
+        "cat" = "${lib.getExe pkgs.bat}";
+	"develop" = "nix develop /nix/var/nix/profiles/per-user/graukolos/$(basename $(pwd))";
       };
     };
     starship.enable = true;
@@ -199,6 +201,7 @@
         "$mod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus"
         "$mod, F, exec, ${lib.getExe pkgs.firefox}"
         "$mod, V, togglefloating,"
+	      "$mod, K, exec, ${lib.getExe pkgs.grimblast} copy output"
         ", XF86MonBrightnessDown, exec, ${pkgs.swayosd}/bin/swayosd --brightness lower"
         ", XF86MonBrightnessUp, exec, ${pkgs.swayosd}/bin/swayosd --brightness raise"
         ", XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd --output-volume +2"
