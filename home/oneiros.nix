@@ -90,20 +90,6 @@ in {
   };
 
   programs = {
-    home-manager.enable = true;
-    topgrade = {
-      enable = true;
-      settings = {
-        misc = {
-          assume_yes = true;
-          no_retry = true;
-          cleanup = true;
-        };
-        linux.nix_arguments = "--flake";
-        firmware.upgrade = true;
-      };
-    };
-    gh.enable = true;
     zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -145,21 +131,7 @@ in {
 
     pkgs.rustup
 
-    pkgs.vlc
-    pkgs.trayscale
-    pkgs.yubioath-flutter
     pkgs.gnome.gnome-tweaks
-    pkgs.prismlauncher
-    pkgs.discord
-    pkgs.blender
-    pkgs.thunderbird
-    pkgs.joplin-desktop
-    pkgs.libreoffice-fresh
-    pkgs.vorta
-    pkgs.protonvpn-gui
-    pkgs.bitwarden
-    pkgs.mattermost-desktop
-    pkgs.amberol
   ];
 
   home.sessionVariables = {

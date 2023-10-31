@@ -41,7 +41,11 @@
   };
 
   services = {
-    printing.enable = true;
+    flatpak.enable = true;
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hplip pkgs.gutenprint pkgs.gutenprintBin pkgs.hplipWithPlugin ];
+    };
     fstrim.enable = true;
     pipewire = {
       enable = true;
