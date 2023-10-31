@@ -103,7 +103,6 @@ in {
         firmware.upgrade = true;
       };
     };
-    gh.enable = true;
     zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -144,6 +143,7 @@ in {
     gnome-pomodoro
 
     pkgs.rustup
+    pkgs.gh
 
     pkgs.vlc
     pkgs.trayscale
