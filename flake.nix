@@ -15,7 +15,7 @@
           home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 
-	        home-manager.users.graukolos = ./home/beren.nix;
+	        home-manager.users.graukolos = ./home;
 	      }
       ];
     };
@@ -29,21 +29,7 @@
           home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 
-	        home-manager.users.graukolos = ./home/glorfindel.nix;
-	      }
-      ];
-    };
-
-    nixosConfigurations.ares = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/ares.nix
-
-	      home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-	        home-manager.useUserPackages = true;
-
-	        home-manager.users.graukolos = ./home/ares.nix;
+	        home-manager.users.graukolos = ./home;
 	      }
       ];
     };
@@ -57,7 +43,7 @@
           home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 
-	        home-manager.users.graukolos = ./home/oneiros.nix;
+	        home-manager.users.graukolos = ./home;
 	      }
       ];
     };

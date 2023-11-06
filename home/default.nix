@@ -48,6 +48,8 @@ in {
       titlebar-font = "Inter Bold 14";
       button-layout = "appmenu:minimize,maximize,close";
       focus-mode = "sloppy";
+      audible-bell = false;
+      visual-bell = false;
     };
     "org/gnome/desktop/screensaver" = {
       picture-uri = "${../assets/wallpaper.jpg}";
@@ -63,6 +65,7 @@ in {
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "nothing";
       power-button-action = "interactive";
+      idle-dim = false;
     };
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
@@ -90,16 +93,17 @@ in {
   };
 
   programs = {
-    home-manager.enable = true;
     topgrade = {
       enable = true;
       settings = {
         misc = {
+          disable = [ "nix" "gnome_shell_extensions" ];
           assume_yes = true;
           no_retry = true;
           cleanup = true;
         };
-        linux.nix_arguments = "--flake";
+        #pre_commands.nix_flake_update = "nix flake update /home/graukolos/Projects/dotfiles";
+        linux.nix_arguments = "--flake /home/graukolos/Projects/dotfiles";
         firmware.upgrade = true;
       };
     };
@@ -117,7 +121,6 @@ in {
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = true;
     htop = {
       enable = true;
       settings = {
@@ -126,7 +129,11 @@ in {
         show_cpu_temperature = 1;
       };
     };
-    vscode.enable = true;
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = [ pkgs.vscode-extensions.rust-lang.rust-analyzer ];
+    };
     eza.enable = true;
     bottom.enable = true;
     bat.enable = true;
@@ -141,30 +148,7 @@ in {
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.pop-shell
     gnome-pomodoro
-
-    pkgs.rustup
-    pkgs.gh
-
-    pkgs.vlc
-    pkgs.trayscale
-    pkgs.yubioath-flutter
-    pkgs.gnome.gnome-tweaks
-    pkgs.prismlauncher
-    pkgs.discord
-    pkgs.blender
-    pkgs.thunderbird
-    pkgs.joplin-desktop
-    pkgs.libreoffice-fresh
-    pkgs.vorta
-    pkgs.protonvpn-gui
-    pkgs.bitwarden
-    pkgs.mattermost-desktop
-    pkgs.amberol
   ];
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORM="wayland;xcb";
-  };
 
   services.syncthing.enable = true;
 }
