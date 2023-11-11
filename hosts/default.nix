@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, nixpkgs, pkgs, ... }:
 
 {
   boot = {
@@ -56,7 +56,6 @@
         autoSuspend = false;
       };
       desktopManager.gnome.enable = true;
-      xkb.layout = "gb,de";
       excludePackages = [ pkgs.xterm ];
     };
     pcscd.enable = true;
@@ -67,7 +66,10 @@
   nix = {
     settings.auto-optimise-store = true;
     settings.experimental-features = [ "nix-command" "flakes" ];
+    registry.nixpkgs.flake = nixpkgs;
+    nixPath = [ "/etc/nix/inputs" ];
   };
+  environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
 
   programs = {
     zsh.enable = true;
@@ -92,7 +94,7 @@
     "de_DE.UTF-8/UTF-8"
   ];
 
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   security = {
     sudo = {

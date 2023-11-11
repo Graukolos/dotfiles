@@ -1,14 +1,6 @@
 { lib, pkgs, config, ... }:
-let
-     oldpkgs = import (builtins.fetchTree {
-      type = "github";
-      owner = "nixos";
-      repo = "nixpkgs";
-      rev = "e1ee359d16a1886f0771cc433a00827da98d861c";
-     }) { inherit (pkgs) system; };
 
-     gnome-pomodoro = oldpkgs.gnome.pomodoro;
-in {
+{
   home = {
     username = "graukolos";
     homeDirectory = "/home/graukolos";
@@ -93,26 +85,12 @@ in {
   };
 
   programs = {
-    topgrade = {
-      enable = true;
-      settings = {
-        misc = {
-          disable = [ "nix" "gnome_shell_extensions" ];
-          assume_yes = true;
-          no_retry = true;
-          cleanup = true;
-        };
-        #pre_commands.nix_flake_update = "nix flake update /home/graukolos/Projects/dotfiles";
-        linux.nix_arguments = "--flake /home/graukolos/Projects/dotfiles";
-        firmware.upgrade = true;
-      };
-    };
     zsh = {
       enable = true;
       enableAutosuggestions = true;
-      syntaxHighlighting.enable = true;
+      #syntaxHighlighting.enable = true;
       shellAliases = {
-        "ls" = "${lib.getExe pkgs.eza} -al";
+        "ls" = "${lib.getExe pkgs.exa} -al";
         "cat" = "${lib.getExe pkgs.bat}";
       };
     };
@@ -134,20 +112,23 @@ in {
       package = pkgs.vscodium;
       extensions = [ pkgs.vscode-extensions.rust-lang.rust-analyzer ];
     };
-    eza.enable = true;
+    exa.enable = true;
     bottom.enable = true;
     bat.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
+    home-manager.enable = true;
   };
 
   home.packages = [
     pkgs.gnomeExtensions.appindicator
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.pop-shell
-    gnome-pomodoro
+    pkgs.gnome.pomodoro
+
+    (pkgs.writeShellScriptBin "update" ''OLDPWD = $PWD; cd ~/Projects/dotfiles; nix flake update; sudo nixos-rebuild switch --flake .; flatpak update; cd $OLDPWD; unset OLDPWD'')
   ];
 
   services.syncthing.enable = true;

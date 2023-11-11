@@ -3,14 +3,7 @@
 {
   imports = [ ./. ];
 
-  networking = {
-    hostName = "oneiros";
-  };
-
-  services.fwupd = {
-    enable = true;
-    extraRemotes = [ "lvfs-testing" ];
-  };
+  networking.hostName = "oneiros";
 
   programs.gamemode.enable = true;
 

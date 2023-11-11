@@ -27,7 +27,7 @@
       device = "/dev/disk/by-uuid/92340fae-c446-4e7f-a515-1fc6939110ee";
       fsType = "btrfs";
       options = [ "compress=zstd" ];
-    }; 
+    };
   };
 
   zramSwap.enable = true;

@@ -9,12 +9,5 @@
 
   programs.gamemode.enable = true;
 
-  services = {
-    fwupd = {
-      enable = true;
-      extraRemotes = [ "lvfs-testing" ];
-    };
-  };
-
   security.tpm2.enable = true;
 }
