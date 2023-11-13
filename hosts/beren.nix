@@ -4,7 +4,7 @@
   imports = [ ./. ];
 
   boot = {
-    initrd.kernelModules = [ "i915" "nvme" "xhci_pci" ];
+    initrd.kernelModules = [ "i915" "nvme" ];
     kernelParams = [ "i915.enable_guc=2" ];
   };
 
