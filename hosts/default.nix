@@ -61,15 +61,13 @@
     pcscd.enable = true;
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings.auto-optimise-store = true;
     settings.experimental-features = [ "nix-command" "flakes" ];
     registry.nixpkgs.flake = nixpkgs;
-    nixPath = [ "/etc/nix/inputs" ];
   };
-  environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
 
   programs = {
     zsh.enable = true;
@@ -94,13 +92,9 @@
     "de_DE.UTF-8/UTF-8"
   ];
 
-  fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   security = {
-    sudo = {
-      enable = true;
-      execWheelOnly = true;
-    };
     rtkit.enable = true;
   };
 }

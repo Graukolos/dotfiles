@@ -12,7 +12,7 @@
       enable = true;
       enableAutosuggestions = true;
       shellAliases = {
-        "ls" = "${lib.getExe pkgs.exa} -al";
+        "ls" = "${lib.getExe pkgs.eza} -al";
         "cat" = "${lib.getExe pkgs.bat}";
       };
     };
@@ -29,7 +29,7 @@
         show_cpu_temperature = 1;
       };
     };
-    exa.enable = true;
+    eza.enable = true;
     bottom.enable = true;
     bat.enable = true;
     direnv = {

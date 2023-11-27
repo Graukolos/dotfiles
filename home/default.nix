@@ -4,7 +4,7 @@
   home = {
     username = "graukolos";
     homeDirectory = "/home/graukolos";
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 
   gtk = {
@@ -12,7 +12,7 @@
     font = {
       name = "Inter";
       package = pkgs.inter;
-      size = 14;
+      size = 11;
     };
     gtk3.bookmarks = [ "file:///home/graukolos/Projects" ];
     theme = {
@@ -26,8 +26,8 @@
       color-scheme = "prefer-dark";
       show-battery-percentage = true;
       font-antialiasing = "rgba";
-      document-font-name = "Inter 14";
-      monospace-font-name = "JetBrainsMono Nerd Font 14";
+      document-font-name = "Inter 11";
+      monospace-font-name = "JetBrainsMono Nerd Font 11";
       clock-show-weekday = true;
       clock-show-seconds = true;
     };
@@ -37,7 +37,7 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
-      titlebar-font = "Inter Bold 14";
+      titlebar-font = "Inter Bold 11";
       button-layout = "appmenu:minimize,maximize,close";
       focus-mode = "sloppy";
       audible-bell = false;
@@ -88,10 +88,10 @@
     zsh = {
       enable = true;
       enableAutosuggestions = true;
-      #syntaxHighlighting.enable = true;
+      syntaxHighlighting.enable = true;
       shellAliases = {
-        "ls" = "${lib.getExe pkgs.exa} -al";
-        "cat" = "${lib.getExe pkgs.bat}";
+        ls = "${pkgs.eza}";
+        ll = "${pkgs.eza} -l";
       };
     };
     starship.enable = true;
@@ -110,25 +110,22 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      extensions = [ pkgs.vscode-extensions.rust-lang.rust-analyzer ];
+      enableUpdateCheck = false;
     };
-    exa.enable = true;
+    eza.enable = true;
     bottom.enable = true;
     bat.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    home-manager.enable = true;
   };
 
-  home.packages = [
-    pkgs.gnomeExtensions.appindicator
-    pkgs.gnomeExtensions.blur-my-shell
-    pkgs.gnomeExtensions.pop-shell
-    pkgs.gnome.pomodoro
-
-    (pkgs.writeShellScriptBin "update" ''OLDPWD = $PWD; cd ~/Projects/dotfiles; nix flake update; sudo nixos-rebuild switch --flake .; flatpak update; cd $OLDPWD; unset OLDPWD'')
+  home.packages = with pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.pop-shell
+    gnome.pomodoro
   ];
 
   services.syncthing.enable = true;
