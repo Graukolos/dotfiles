@@ -90,8 +90,8 @@
       enableAutosuggestions = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        ls = "${pkgs.eza}";
-        ll = "${pkgs.eza} -l";
+        ls = "${lib.getExe pkgs.eza}";
+        ll = "${lib.getExe pkgs.eza} -l";
       };
     };
     starship.enable = true;
