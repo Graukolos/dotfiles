@@ -27,7 +27,7 @@
         specialArgs = inputs;
       };
 
-      nixosConfigurations.glorfindel = nixpkgs.nixosSystem {
+      nixosConfigurations.glorfindel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/glorfindel.nix
@@ -67,6 +67,21 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.graukolos = ./home/server.nix;
+          }
+        ];
+        specialArgs = inputs;
+      };
+
+      nixosConfigurations.morgoth = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/morgoth.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.graukolos = ./home;
           }
         ];
         specialArgs = inputs;
