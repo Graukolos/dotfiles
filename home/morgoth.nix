@@ -32,8 +32,8 @@
       clock-show-seconds = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "${../assets/wallpaper.jpg}";
-      picture-uri-dark = "${../assets/wallpaper.jpg}";
+      picture-uri = "${../assets/wallpaper_morgoth.jpg}";
+      picture-uri-dark = "${../assets/wallpaper_morgoth.jpg}";
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
@@ -50,7 +50,7 @@
       edge-tiling = true;
     };
     "org/gnome/desktop/session" = {
-      idle-delay = lib.hm.gvariant.mkUint32 0;
+      idle-delay = lib.hm.gvariant.mkUint32 60;
     };
     "org/gnome/settings-daemon/plugins/power" = {
       power-saver-profile-on-low-battery = false;
@@ -74,9 +74,8 @@
     "org/gnome/shell" = {
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
-        "blur-my-shell@aunetx"
-        "pop-shell@system76.com"
         "pomodoro@arun.codito.in"
+        "dash-to-dock@micxgx.gmail.com"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -122,8 +121,7 @@
 
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.pop-shell
+    gnomeExtensions.dash-to-dock
     gnome.pomodoro
   ];
 

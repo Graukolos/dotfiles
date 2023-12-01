@@ -81,7 +81,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.graukolos = ./home;
+            home-manager.users.graukolos = ./home/morgoth.nix;
           }
         ];
         specialArgs = inputs;
