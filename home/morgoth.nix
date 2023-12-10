@@ -2,11 +2,11 @@
 
 {
   imports = [
+    ./gnome
+    ./gtk
     ./home-manager
     ./shell
-    ./gtk
-    ./vscodium
-    ./gnome
+    ./dev
   ];
 
   dconf.settings = {

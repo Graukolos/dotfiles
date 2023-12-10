@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./home-manager
-    ./shell
     ./gnome
     ./gtk
-    ./vscodium
+    ./home-manager
+    ./shell
+    ./dev
   ];
 }
