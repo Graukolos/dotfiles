@@ -1,19 +1,14 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, ... }:
 
 {
-  home = {
-    username = "graukolos";
-    homeDirectory = "/home/graukolos";
-    stateVersion = "23.05";
-  };
-
   programs = {
     zsh = {
       enable = true;
       enableAutosuggestions = true;
+      syntaxHighlighting.enable = true;
       shellAliases = {
-        "ls" = "${lib.getExe pkgs.eza} -al";
-        "cat" = "${lib.getExe pkgs.bat}";
+        ls = "${lib.getExe pkgs.eza}";
+        ll = "${lib.getExe pkgs.eza} -al";
       };
     };
     starship.enable = true;

@@ -1,7 +1,18 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./. ];
+  imports = [
+    ./audio
+    ./boot
+    ./desktop
+    ./gaming
+    ./hardware
+    ./locale
+    ./networking
+    ./nix
+    ./programs
+    ./users
+  ];
 
   boot.initrd.availableKernelModules = [ "nvme" ];
 
@@ -13,8 +24,4 @@
   };
 
   networking.hostName = "glorfindel";
-
-  programs.gamemode.enable = true;
-
-  security.tpm2.enable = true;
 }

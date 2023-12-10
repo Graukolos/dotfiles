@@ -10,81 +10,69 @@
   outputs = { self, nixpkgs, home-manager }@inputs:
     let
       pkgs = import nixpkgs { system = "x86_64-linux"; };
+      lib = nixpkgs.lib;
     in
     {
-      nixosConfigurations.beren = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/beren.nix
+      nixosConfigurations = {
+        glorfindel = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/glorfindel.nix
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.graukolos = ./home;
-          }
-        ];
-        specialArgs = inputs;
-      };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.graukolos = ./home/glorfindel.nix;
+            }
+          ];
+          specialArgs = inputs;
+        };
 
-      nixosConfigurations.glorfindel = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/glorfindel.nix
+        oneiros = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/oneiros.nix
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.graukolos = ./home;
-          }
-        ];
-        specialArgs = inputs;
-      };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.graukolos = ./home/oneiros.nix;
+            }
+          ];
+          specialArgs = inputs;
+        };
 
-      nixosConfigurations.oneiros = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/oneiros.nix
+        ares = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/ares.nix
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.graukolos = ./home;
-          }
-        ];
-        specialArgs = inputs;
-      };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.graukolos = ./home/ares.nix;
+            }
+          ];
+          specialArgs = inputs;
+        };
 
-      nixosConfigurations.ares = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/ares.nix
+        morgoth = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/morgoth.nix
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.graukolos = ./home/server.nix;
-          }
-        ];
-        specialArgs = inputs;
-      };
-
-      nixosConfigurations.morgoth = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/morgoth.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.graukolos = ./home/morgoth.nix;
-          }
-        ];
-        specialArgs = inputs;
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.graukolos = ./home/morgoth.nix;
+            }
+          ];
+          specialArgs = inputs;
+        };
       };
 
       devShells.x86_64-linux.default = pkgs.mkShell {

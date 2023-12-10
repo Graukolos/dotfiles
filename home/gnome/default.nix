@@ -1,26 +1,6 @@
 { lib, pkgs, config, ... }:
 
 {
-  home = {
-    username = "graukolos";
-    homeDirectory = "/home/graukolos";
-    stateVersion = "23.11";
-  };
-
-  gtk = {
-    enable = true;
-    font = {
-      name = "Inter";
-      package = pkgs.inter;
-      size = 11;
-    };
-    gtk3.bookmarks = [ "file:///home/graukolos/Projects" ];
-    theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3-dark";
-    };
-  };
-
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -32,8 +12,8 @@
       clock-show-seconds = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "${../assets/wallpaper.jpg}";
-      picture-uri-dark = "${../assets/wallpaper.jpg}";
+      picture-uri = "${../../assets/wallpaper.jpg}";
+      picture-uri-dark = "${../../assets/wallpaper.jpg}";
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
@@ -44,7 +24,7 @@
       visual-bell = false;
     };
     "org/gnome/desktop/screensaver" = {
-      picture-uri = "${../assets/wallpaper.jpg}";
+      picture-uri = "${../../assets/wallpaper.jpg}";
     };
     "org/gnome/mutter" = {
       edge-tiling = true;
@@ -75,7 +55,6 @@
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
         "blur-my-shell@aunetx"
-        "pop-shell@system76.com"
         "pomodoro@arun.codito.in"
       ];
     };
@@ -84,46 +63,9 @@
     };
   };
 
-  programs = {
-    zsh = {
-      enable = true;
-      enableAutosuggestions = true;
-      syntaxHighlighting.enable = true;
-      shellAliases = {
-        ls = "${lib.getExe pkgs.eza}";
-        ll = "${lib.getExe pkgs.eza} -l";
-      };
-    };
-    starship.enable = true;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-    htop = {
-      enable = true;
-      settings = {
-        hide_userland_threads = 1;
-        show_cpu_frequency = 1;
-        show_cpu_temperature = 1;
-      };
-    };
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-    };
-    eza.enable = true;
-    bottom.enable = true;
-    bat.enable = true;
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-  };
-
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.pop-shell
     gnome.pomodoro
   ];
 
